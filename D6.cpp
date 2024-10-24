@@ -21,14 +21,12 @@ int main(){
 	jarak = xPf - xPi;
 
 	//case: ketika paket tidak mungkin mengenai target
-	//target - dist = negatif
-	if(xT-dist<0){
+	if(jarak<0){
 		cout<<"Ets, ga kena";
 	}
 	
 	//case: ketika pesawat langsung menjatuhkan paket
-	//target - dist = 0
-	else if(xT-dist==0){
+	else if(jarak==0){
 		cout<<"Paket bisa langsung dijatuhkan";
 	}
 	
