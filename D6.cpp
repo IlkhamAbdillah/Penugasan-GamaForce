@@ -3,15 +3,7 @@ using namespace std;
 const double g = 9.8;
 //v = velocity, h = high, x = position(x), P = Plane, T = Target
 
-double hP, vP, xP, xT, t, dist, tP;
-
-double time(double h){
-	return sqrt(2*h/g);
-}
-
-double distance(double t){
-	return (vP*t);
-}
+double hP, vP, xPi, xPf, xT, t, dist, jarak;
 
 int main(){
 	cout<<"Masukkan Ketinggian Pesawat (m): ";
@@ -19,17 +11,15 @@ int main(){
 	cout<<"Masukkan Kecepatan Pesawat (m/s): ";
 	cin>>vP;
 	cout<<"Masukkan Posisi x Pesawat (m): ";
-	cin>>xP;
+	cin>>xPi;
 	cout<<"Masukkan Posisi x Target (m): ";
 	cin>>xT;
 	
-	t = time(hP);
-	dist = distance(t);
-	//paket harus dijatuhkan saat posisi pesawat = (target - dist)
-	//cout<<t<<" "<<dist;
-	xP = xT-dist;
-	tP = xP/vP;
-	
+	t = sqrt(2*hP/g);
+	dist = vP*t;
+	xPf = xT-dist;
+	jarak = xPf - xPi;
+
 	//case: ketika paket tidak mungkin mengenai target
 	//target - dist = negatif
 	if(xT-dist<0){
@@ -44,6 +34,6 @@ int main(){
 	
 	//normal case
 	else{
-		cout<<"Paket harus dijatuhkan saat pesawat berada di posisi "<<xP<<" , yaitu pada waktu "<<tP<<" detik";
+		cout<<"Paket harus dijatuhkan saat pesawat berada di posisi "<<jarak<<" meter.";
 	}
 }
